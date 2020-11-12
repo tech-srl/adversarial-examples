@@ -14,7 +14,8 @@ The project contains 2 folders:
 
 Enter the folders for more information.
 
-<--
+<!--
+
 ## Citation
 
 [code2vec: Learning Distributed Representations of Code](https://arxiv.org/pdf/1803.09473)
