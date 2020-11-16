@@ -25,7 +25,6 @@ Table of Contents
   * [Requirements](#requirements)
   * [Quickstart](#quickstart)
   * [Configuration](#configuration)
-  * [Citation](#citation)
 
 ## Requirements
 On Ubuntu:
@@ -162,16 +161,3 @@ The max size of the path vocabulary.
 #### config.EMBEDDINGS_SIZE = 128
 Embedding size for tokens and paths.
 
-
-## Citation
-
-[Adversarial Examples for Models of Code](https://arxiv.org/abs/1910.07517)
-
-```
-@article{yefet2019adversarial,
-  title={Adversarial Examples for Models of Code},
-  author={Yefet, Noam and Alon, Uri and Yahav, Eran},
-  journal={arXiv preprint arXiv:1910.07517},
-  year={2019}
-}
-```
