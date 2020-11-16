@@ -14,19 +14,17 @@ The project contains 2 folders:
 
 Enter the folders for more information.
 
-<!--
 
 ## Citation
 
-[code2vec: Learning Distributed Representations of Code](https://arxiv.org/pdf/1803.09473)
+[Adversarial Examples for Models of Code](https://arxiv.org/abs/1910.07517)
 
 ```
-@article{alon2018code2vec,
-  title={code2vec: Learning Distributed Representations of Code},
-  author={Alon, Uri and Zilberstein, Meital and Levy, Omer and Yahav, Eran},
-  journal={arXiv preprint arXiv:1803.09473},
-  year={2018}
+@article{yefet2019adversarial,
+  title={Adversarial Examples for Models of Code},
+  author={Yefet, Noam and Alon, Uri and Yahav, Eran},
+  journal={arXiv preprint arXiv:1910.07517},
+  year={2019}
 }
 ```
--->
 
