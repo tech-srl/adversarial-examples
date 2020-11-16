@@ -19,6 +19,14 @@ class MinibatchData(NamedTuple):
     num_nodes: int
     num_edges: int
 
+# todo: noamcode: add batchdata to adversarial
+class MinibatchAdversarialData(NamedTuple):
+    feed_dict: Dict[str, tf.Tensor]
+    num_graphs: int
+    num_nodes: int
+    num_edges: int
+    debug_data: Dict[str, List]
+
 
 class Sparse_Graph_Task(ABC):
     """

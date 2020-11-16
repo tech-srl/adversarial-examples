@@ -16,7 +16,7 @@ import numpy as np
 from docopt import docopt
 from dpu_utils.utils import run_and_debug
 
-MODEL_TYPES = ["GGNN", "RGCN", "RGAT", "GNN-Edge-MLP0", "GNN-Edge-MLP1", "GNN_FiLM"]
+MODEL_TYPES = ["GGNN"]#, "RGCN", "RGAT", "GNN-Edge-MLP0", "GNN-Edge-MLP1", "GNN_FiLM"]
 
 TEST_RES_RE = re.compile('^Metrics: Accuracy: (0.\d+)')
 VALID_RES_RE = re.compile('Best validation results: Accuracy: (0.\d+)')
@@ -38,18 +38,18 @@ def run(args):
         for seed in range(1, 1 + num_seeds):
             logfile = os.path.join(target_dir, "%s_seed%i.txt" % (model.lower(), seed))
             test_logfile = os.path.join(target_dir, "%s_seed%i-testonly.txt" % (model.lower(), seed))
-            with open(logfile, "w") as log_fh:
-                subprocess.check_call(["python",
-                                       "train.py",
-                                       "--quiet",
-                                       "--run-test",
-                                       model,
-                                       "VarMisuse",
-                                       "--model-param-overrides",
-                                       "{\"random_seed\": %i}" % seed,
-                                       ],
-                                      stdout=log_fh,
-                                      stderr=log_fh)
+            # with open(logfile, "w") as log_fh:
+            #     subprocess.check_call(["python",
+            #                            "train.py",
+            #                            "--quiet",
+            #                            "--run-test",
+            #                            model,
+            #                            "VarMisuse",
+            #                            "--model-param-overrides",
+            #                            "{\"random_seed\": %i}" % seed,
+            #                            ],
+            #                           stdout=log_fh,
+            #                           stderr=log_fh)
             model_file = None
             with open(logfile, "r") as log_fh:
                 for line in log_fh.readlines():
@@ -63,6 +63,7 @@ def run(args):
                     elif model_file_match is not None:
                         model_file = model_file_match.groups()[0]
 
+            model_file = "trained_models\\VarMisuse_GGNN_2019-09-23-17-42-12_23483_best_model.pickle"
             # Run TestOnly
             assert model_file is not None, "Could not find saved model file"
             with open(test_logfile, "w") as log_fh:
