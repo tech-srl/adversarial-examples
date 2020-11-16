@@ -29,7 +29,7 @@ On Ubuntu:
 > python3 --version
   * TensorFlow - version 1.13 or newer ([install](https://www.tensorflow.org/install/install_linux)). To check TensorFlow version:
 > python3 -c 'import tensorflow as tf; print(tf.\_\_version\_\_)'
-  * For [creating a new dataset](#creating-and-preprocessing-a-new-java-dataset) - [Java JDK](https://openjdk.java.net/install/)
+ 
 
 ## Quickstart
 ### Step 0: Cloning this repository
@@ -47,7 +47,7 @@ We provided a preprocessed dataset (based on [Uri Alon's Java-large dataset](htt
 
 First, you should download and extract the preprocessed datasets below in the dir created earlier:
 
-* [dataset for VarName & Deadcode atack](https://drive.google.com/file/d/1ovS9q8GPPChHuEGErPdG-qs61-oTtPW-/view?usp=sharing)
+* [dataset for VarName & Deadcode atack](https://adversarial-examples.s3.amazonaws.com/adversarial+for+code2vec/java_large_adversarial_data.tar.gz)
 
 Then extract it:
 ```
@@ -71,40 +71,6 @@ tar -xvzf java-large-model.tar.gz
 ```
 
 You can also train your own model. see [Code2Vec](https://github.com/tech-srl/code2vec)
-
-<!-- #### Downloading a trained model (1.4G)
-We already trained a model for 8 epochs on the data that was preprocessed in the previous step.
-The number of epochs was chosen using [early stopping](https://en.wikipedia.org/wiki/Early_stopping), as the version that maximized the F1 score on the validation set.
-```
-wget https://s3.amazonaws.com/code2vec/model/java14m_model.tar.gz
-mkdir -p models/java14m/
-tar -xvzf java14m_model.tar.gz -C models/java14m/
-```
-
--->
-<!--
-##### Note:
-This trained model is in a "released" state, which means that we stripped it from its training parameters and can thus be used for inference, but cannot be further trained. If you use this trained model in the next steps, use 'saved_model_iter8.release' instead of 'saved_model_iter8' in every command line example that loads the model such as: '--load models/java14m/saved_model_iter8'. To read how to release a model, see [Releasing the model](#releasing-the-model).
-<!--
-#### Training a model from scratch
-To train a model from scratch:
-  * Edit the file [train.sh](train.sh) to point it to the right preprocessed data. By default, 
-  it points to our "java14m" dataset that was preprocessed in the previous step.
-  * Before training, you can edit the configuration hyper-parameters in the file [config.py](config.py),
-  as explained in [Configuration](#configuration).
-  * Run the [train.sh](train.sh) script:
-```
-source train.sh
-```
-<!--
-##### Notes:
-  1. By default, the network is evaluated on the validation set after every training epoch.
-  2. The newest 10 versions are kept (older are deleted automatically). This can be changed, but will be more space consuming.
-  3. By default, the network is training for 20 epochs.
-These settings can be changed by simply editing the file [config.py](config.py).
-Training on a Tesla v100 GPU takes about 50 minutes per epoch. 
-Training on Tesla K80 takes about 4 hours per epoch.
--->
 
 ### Step 3: Run adversary on the trained model
 
@@ -142,7 +108,7 @@ method or code snippet, and examine the model's predictions and attention scores
 ### Manually examine adversarial examples
 You can run the examples we provided in the paper on the Code2vec's **online demo**. available at [https://code2vec.org/](https://code2vec.org/).
 
-* You can copy&paste the sort example from [here](https://drive.google.com/file/d/1ahw70BL5BNYvtejLJPuT2f_MWhjKMqmj/view?usp=sharing)
+* You can copy&paste the sort example from [here](https://adversarial-examples.s3.amazonaws.com/adversarial+for+code2vec/sort_adversarial_example.txt)
 
 * you can type the following code in each example to get Prediction of sort:
 ```
@@ -192,17 +158,16 @@ The max size of the path vocabulary.
 #### config.EMBEDDINGS_SIZE = 128
 Embedding size for tokens and paths.
 
-<!--
+
 ## Citation
 
-[code2vec: Learning Distributed Representations of Code](https://arxiv.org/pdf/1803.09473)
+[Adversarial Examples for Models of Code](https://arxiv.org/abs/1910.07517)
 
 ```
-@article{alon2018code2vec,
-  title={code2vec: Learning Distributed Representations of Code},
-  author={Alon, Uri and Zilberstein, Meital and Levy, Omer and Yahav, Eran},
-  journal={arXiv preprint arXiv:1803.09473},
-  year={2018}
+@article{yefet2019adversarial,
+  title={Adversarial Examples for Models of Code},
+  author={Yefet, Noam and Alon, Uri and Yahav, Eran},
+  journal={arXiv preprint arXiv:1910.07517},
+  year={2019}
 }
 ```
--->
