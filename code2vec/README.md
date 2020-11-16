@@ -67,7 +67,7 @@ In order to create and preprocess a new dataset (for example, to compare code2ve
 > source preprocess.sh
 -->
 ### Step 2: Downloading a trained model
-We provide a trained code2vec model that was trained on the Java-large dataset (thanks to [Uri Alon](https://github.com/tech-srl/code2vec)). Trainable model (3.5 GB):
+We provide a trained code2vec model that was trained on the Java-large dataset (more info [here](https://github.com/tech-srl/code2vec)). Trainable model (3.5 GB):
 ```
 wget https://code2vec.s3.amazonaws.com/model/java-large-model.tar.gz
 tar -xvzf java-large-model.tar.gz
