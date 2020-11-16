@@ -37,8 +37,8 @@ On Ubuntu:
 ## Quickstart
 ### Step 0: Cloning this repository
 ```
-git clone https://github.com/noamyft/code2vec.git
-cd code2vec
+git clone https://github.com/tech-srl/adversarial-examples.git
+cd adversarial-examples/code2vec
 ```
 
 ### Step 1: Creating a new dataset from java sources
