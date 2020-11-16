@@ -1,6 +1,9 @@
 # Adversarial Examples for Models of Code - Code2vec
 
+(forked from: https://github.com/tech-srl/code2vec)
+
 An adversary for Code2vec - neural network for learning distributed representations of code.
+
 This is an official implemention of the model described in:
 
 Noam Yefet, [Uri Alon](http://urialon.cswp.cs.technion.ac.il) and [Eran Yahav](http://www.cs.technion.ac.il/~yahave/),
@@ -22,6 +25,7 @@ Table of Contents
   * [Requirements](#requirements)
   * [Quickstart](#quickstart)
   * [Configuration](#configuration)
+  * [Citation](#citation)
 
 ## Requirements
 On Ubuntu:
@@ -87,11 +91,11 @@ python3 code2vec.py --load models/java-large/saved_model_iter3 --load_dict data/
 ```
 
 Where:
-* _--load _ - the path to the pretrained model.
-* _--load_dict _ - the path to the preprocessed dictionary.
-* _--adversarial_deadcode _ - use DeadCode attack (note: you should also specify the path to the deadcode dataset)
-* _--adversarial_type _ - targeted\nontargeted.
-* _--adversarial_target _ - specify the desired target (for the "targeted" type). Names seperated by '|" (e.g. "merge|from")
+* _--load_ - the path to the pretrained model.
+* _--load_dict_ - the path to the preprocessed dictionary.
+* _--adversarial_deadcode_ - use DeadCode attack (note: you should also specify the path to the deadcode dataset)
+* _--adversarial_type_ - targeted\nontargeted.
+* _--adversarial_target_ - specify the desired target (for the "targeted" type). Names seperated by '|" (e.g. "merge|from")
 
 You can also determine the BFS search's depth and width by setting the _--adversarial_depth_ , _--adversarial_topk_ parameters respectively (2 by default).
 
