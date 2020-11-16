@@ -29,11 +29,10 @@ On Ubuntu:
 
 ## Quickstart
 
-### Step 0: Cloning this repository and switch branch
+### Step 0: Cloning this repository
 ```
 git clone https://github.com/tech-srl/adversarial-examples.git
 cd adversarial-examples/tf-gnn-samples
-git checkout adversarial
 ```
 
 ### Step 1: Download dataset 
@@ -62,7 +61,7 @@ and unzip the file in trained_models.
 Once you download the preprocessed datasets and pretrained model - you can run the adversary on the model, by run:
 
 ```
-python3 code2vec.py trained_models/VarMisuse_GGNN_2019-09-23-17-42-12_23483_best_model.pickle data/varmisuse_small/graphs-testonly
+python3 test.py trained_models/VarMisuse_GGNN_2019-09-23-17-42-12_23483_best_model.pickle data/varmisuse_small/graphs-testonly
 ```
 **note:** the adversary may take some time to run (even on GPU).
 
